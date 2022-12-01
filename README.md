@@ -88,3 +88,29 @@ A trade generally proceeds as follows:
 5. SafeSEXBot comes with no support.
 6. Smart contract admin cannot take assets. Admin cannot interfere with or
    reverse trades. Please review the smart contract codes to confirm.
+7. No privacy implemented. For that use Tornado Cash.
+
+## RUNNING THE CLIENT
+
+* Download and install latest version of NW.js.
+* Extract the release zipped tarball e.g. `$ tar xf safesexbot-ui-1.tgz`
+* `$ cd safesexbot\ui`
+* `$ nw .`
+* Go to the SETTINGS tab and specify your web3 gateway
+* Go to the ACCOUNT tab and provide your key, geth file or do the ADILOS swap
+
+The client is HTML and 100% javascript but npm modules may include
+platform-specific binaries. The most likely source of trouble will be the
+`node_modules` subdirectory. The release was prepared on x86 64-bit Linux.
+
+Another source of potential trouble is we needed a small hack to the secp256k1
+module to make it work in NW's slightly non-standard javascript engine.
+
+Line 21-23 In `node_modules/secp256k1/lib/index.js`:
+
+    function isUint8Array (name, value, length) {
+     assert(    value instanceof Uint8Array
+             || value.constructor.name === 'Uint8Array',
+
+See https://github.com/cryptocoinjs/secp256k1-node/issues/175
+
