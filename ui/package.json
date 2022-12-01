@@ -1,0 +1,13 @@
+{
+  "chromium-args": "--enable-logging=stderr",
+  "name": "SΞXBot",
+  "version": "0.1.0",
+  "description": "Simple Ξthereum eXchange roBot",
+  "main": "index.html",
+  "dependencies": {
+    "@ethereumjs/tx": "^3.1.4",
+    "adilosjs": "^1.0.0",
+    "ethers": "^5.1.4",
+    "qr-scanner": "^1.2.0"
+  }
+}

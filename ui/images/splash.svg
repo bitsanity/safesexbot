@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="1000"
+   height="700"
+   viewBox="0 0 264.58333 185.20834"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="splash.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker7236"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path7234" />
+    </marker>
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect7232"
+       effect="bspline" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker6232"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path6230" />
+    </marker>
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect6228"
+       effect="bspline" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker5252"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path5250"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect5248"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect5238"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker4030"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path4028" />
+    </marker>
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect4026"
+       effect="bspline" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect3544"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker3114"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path3112" />
+    </marker>
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect3110"
+       effect="bspline" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker1864"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1862"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1860"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker1322"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1320" />
+    </marker>
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect1318"
+       effect="bspline" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1007"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1002"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2782552"
+     inkscape:cx="500"
+     inkscape:cy="375.70837"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-111.79165)">
+    <rect
+       style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.39999998, 2.39999998;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect914"
+       width="242.38916"
+       height="146.21588"
+       x="12.047532"
+       y="148.83331" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect998"
+       width="62.395428"
+       height="21.757486"
+       x="102.15991"
+       y="174.93558" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect821"
+       width="62.395428"
+       height="15.76524"
+       x="101.62313"
+       y="114.53971" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="117.97079"
+       y="120.57178"
+       id="text817"><tspan
+         sodipodi:role="line"
+         x="117.97079"
+         y="120.57178"
+         style="fill:#f9f9f9;stroke-width:0.26458332px"
+         id="tspan819">SafeSΞXBot</tspan></text>
+    <rect
+       y="155.86101"
+       x="183.33751"
+       height="20.318974"
+       width="62.395428"
+       id="rect823"
+       style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <a xlink:href="https://etherscan.io/address/0xaee9b3e8329b57e2192f4b70c7c3fb22a4c72f6e#code" xlink:show="new">
+    <text
+       id="text829"
+       y="162.97937"
+       x="194.92252"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan827"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         y="162.97937"
+         x="194.92252"
+         sodipodi:role="line">OptionFactory</tspan></text>
+    </a>
+    <rect
+       style="opacity:1;fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect831"
+       width="62.395428"
+       height="20.318974"
+       x="21.413193"
+       y="155.86101" />
+    <a xlink:href="https://etherscan.io/address/0x645e9ba771438bd45e4756b21c6b04197c0bfad5#code" xlink:show="new">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="36.173378"
+       y="163.43375"
+       id="text837"><tspan
+         sodipodi:role="line"
+         x="36.173378"
+         y="163.43375"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan841">ChitFactory</tspan></text>
+    </a>
+    <text
+       id="text849"
+       y="126.92172"
+       x="111.62078"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan847"
+         style="fill:#f9f9f9;stroke-width:0.26458332px"
+         y="126.92172"
+         x="111.62078"
+         sodipodi:role="line">(this program)</tspan></text>
+    <text
+       id="text853"
+       y="170.31282"
+       x="28.23587"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan851"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         y="170.31282"
+         x="28.23587"
+         sodipodi:role="line">(Smart Contract)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="190.68924"
+       y="170.3004"
+       id="text859"><tspan
+         sodipodi:role="line"
+         x="190.68924"
+         y="170.3004"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan857">(Smart Contract)</tspan></text>
+    <rect
+       y="155.88583"
+       x="102.15991"
+       height="20.318974"
+       width="62.395428"
+       id="rect861"
+       style="opacity:1;fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <a xlink:href="https://etherscan.io/address/0x986b03c027c6ededc5c85bd267b4c34d31efe8e3#code" xlink:show="new">
+    <text
+       id="text865"
+       y="163.0042"
+       x="119.56593"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan863"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         y="163.0042"
+         x="119.56593"
+         sodipodi:role="line">ChitMarket</tspan></text>
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="109.51176"
+       y="170.32524"
+       id="text869"><tspan
+         sodipodi:role="line"
+         x="109.51176"
+         y="170.32524"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan867">(Smart Contract)</tspan></text>
+    <rect
+       style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect871"
+       width="62.395428"
+       height="20.318974"
+       x="183.97525"
+       y="210.36444" />
+    <a xlink:href="https://etherscan.io/address/0x3308fcccc757c491075a9cf974d34016dbebefda#code" xlink:show="new">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="189.2106"
+       y="217.4828"
+       id="text875"><tspan
+         sodipodi:role="line"
+         x="189.2106"
+         y="217.4828"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan873">OptionNFT : ERC721</tspan></text>
+    </a>
+    <text
+       id="text879"
+       y="224.81625"
+       x="191.32709"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan877"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         y="224.81625"
+         x="191.32709"
+         sodipodi:role="line">(Smart Contract)</tspan></text>
+    <rect
+       y="210.36444"
+       x="62.688232"
+       height="20.318974"
+       width="62.395428"
+       id="rect881"
+       style="opacity:1;fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <a xlink:href="https://etherscan.io/address/0xaed793393a0f8ca285c21bf55244d17c29e11155#code" xlink:show="new">
+    <text
+       id="text885"
+       y="217.93718"
+       x="73.744247"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan883"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         y="217.93718"
+         x="73.744247"
+         sodipodi:role="line">Chit : ERC721</tspan></text>
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="69.51091"
+       y="224.81625"
+       id="text889"><tspan
+         sodipodi:role="line"
+         x="69.51091"
+         y="224.81625"
+         style="fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan887">(Smart Contract)</tspan></text>
+    <rect
+       y="175.96907"
+       x="21.413193"
+       height="20.318974"
+       width="62.395428"
+       id="rect891"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="27.706703"
+       y="181.42517"
+       id="text895"><tspan
+         sodipodi:role="line"
+         x="27.706703"
+         y="181.42517"
+         style="stroke-width:0.26458332px"
+         id="tspan893">make()</tspan><tspan
+         sodipodi:role="line"
+         x="27.706703"
+         y="187.59879"
+         style="stroke-width:0.26458332px"
+         id="tspan897">take()</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect899"
+       width="62.395428"
+       height="20.318974"
+       x="62.688232"
+       y="230.47255" />
+    <text
+       id="text905"
+       y="235.92879"
+       x="66.865074"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan901"
+         style="stroke-width:0.26458332px"
+         y="235.92879"
+         x="66.865074"
+         sodipodi:role="line">itemType: address</tspan><tspan
+         id="tspan903"
+         style="stroke-width:0.26458332px"
+         y="242.1024"
+         x="66.865074"
+         sodipodi:role="line">itemAmount: uint</tspan><tspan
+         style="stroke-width:0.26458332px"
+         y="248.27602"
+         x="66.865074"
+         sodipodi:role="line"
+         id="tspan907">itemTokenId : uint</tspan></text>
+    <rect
+       y="230.4725"
+       x="184.04648"
+       height="59.698223"
+       width="62.215614"
+       id="rect919"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.74999994;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="109.19843"
+       y="181.42517"
+       id="text945"><tspan
+         sodipodi:role="line"
+         x="109.19843"
+         y="181.42517"
+         style="stroke-width:0.26458332px"
+         id="tspan939">ask()</tspan><tspan
+         sodipodi:role="line"
+         x="109.19843"
+         y="187.59879"
+         style="stroke-width:0.26458332px"
+         id="tspan941">offer()</tspan><tspan
+         id="tspan943"
+         sodipodi:role="line"
+         x="109.19843"
+         y="193.7724"
+         style="stroke-width:0.26458332px">accept()</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect951"
+       width="62.395428"
+       height="20.318974"
+       x="183.33751"
+       y="175.96907" />
+    <text
+       id="text959"
+       y="181.42517"
+       x="189.63092"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332px"
+         y="181.42517"
+         x="189.63092"
+         sodipodi:role="line"
+         id="tspan957">make()</tspan><tspan
+         style="stroke-width:0.26458332px"
+         y="187.59879"
+         x="189.63092"
+         sodipodi:role="line"
+         id="tspan966">cancel()</tspan><tspan
+         style="stroke-width:0.26458332px"
+         y="193.7724"
+         x="189.63092"
+         sodipodi:role="line"
+         id="tspan968">take()</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="185.39764"
+       y="236.98692"
+       id="text976"><tspan
+         id="tspan970"
+         sodipodi:role="line"
+         x="185.39764"
+         y="236.98692"
+         style="stroke-width:0.26458332px">optionType: PUT|CALL</tspan><tspan
+         id="tspan974"
+         sodipodi:role="line"
+         x="185.39764"
+         y="243.16054"
+         style="stroke-width:0.26458332px">maker : address</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="249.33415"
+         style="stroke-width:0.26458332px"
+         id="tspan982">collatType: address</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="255.50777"
+         style="stroke-width:0.26458332px"
+         id="tspan986">collatAmount: uint</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="261.68134"
+         style="stroke-width:0.26458332px"
+         id="tspan988">collatTokenId: uint</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="267.85495"
+         style="stroke-width:0.26458332px"
+         id="tspan990">settleType: address</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="274.02856"
+         style="stroke-width:0.26458332px"
+         id="tspan992">settleAmount: uint</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="280.20218"
+         style="stroke-width:0.26458332px"
+         id="tspan994">settleTokenId: uint</tspan><tspan
+         sodipodi:role="line"
+         x="185.39764"
+         y="286.37579"
+         style="stroke-width:0.26458332px"
+         id="tspan996">expiration: uint</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.34834397;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       id="path1000"
+       inkscape:connector-curvature="0"
+       inkscape:path-effect="#path-effect1002"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       transform="matrix(0.86121777,0,0,0.86121777,10.23154,32.240852)" />
+    <path
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       inkscape:path-effect="#path-effect1318"
+       inkscape:connector-curvature="0"
+       id="path1316"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.34331453;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1322)"
+       transform="matrix(0.87383434,0,0,0.87383434,49.518086,29.839033)" />
+    <path
+       transform="matrix(0.89906747,0,0,0.89906747,148.19977,25.035393)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.33367908;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1864)"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       id="path1858"
+       inkscape:connector-curvature="0"
+       inkscape:path-effect="#path-effect1860"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363" />
+    <path
+       transform="matrix(1,0,0,0.96311886,-21.218042,-43.215883)"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       inkscape:path-effect="#path-effect3110"
+       inkscape:connector-curvature="0"
+       id="path3108"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.30569005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3114)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 52.505662,145.5389 c 54.304068,0 108.607868,0 162.911408,0"
+       id="path5236"
+       inkscape:connector-curvature="0"
+       inkscape:path-effect="#path-effect5238"
+       inkscape:original-d="m 52.505662,145.5389 c 54.304068,-2.6e-4 108.607868,-2.6e-4 162.911408,0"
+       transform="translate(0,-5.2916669)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.38053799;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5252)"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       id="path5246"
+       inkscape:connector-curvature="0"
+       inkscape:path-effect="#path-effect5248"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       transform="matrix(1,0,0,0.62150765,59.21533,27.222286)" />
+    <path
+       transform="matrix(1,0,0,0.96140227,141.76562,-42.861932)"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       inkscape:path-effect="#path-effect6228"
+       inkscape:connector-curvature="0"
+       id="path6226"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.30596283;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6232)" />
+    <path
+       transform="matrix(1.210471,0,0,0.9378173,43.698626,-48.053027)"
+       inkscape:original-d="m 73.723705,190.37033 c 2.65e-4,5.27428 2.65e-4,10.54882 0,15.82363"
+       inkscape:path-effect="#path-effect7232"
+       inkscape:connector-curvature="0"
+       id="path7230"
+       d="m 73.723705,190.37033 c 0,5.27428 0,10.54882 0,15.82363"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.28156906;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111126px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.811981"
+       y="288.52139"
+       id="text918"><tspan
+         sodipodi:role="line"
+         id="tspan916"
+         x="17.811981"
+         y="288.52139"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111126px;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332px">BLOCKCHAIN / EVM</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.39999995;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect921"
+       width="17.58396"
+       height="6.8305998"
+       x="124.20274"
+       y="136.7446" />
+    <a xlink:href="https://web3js.readthedocs.io/" xlink:show="new">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888855px;line-height:125%;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="127.09056"
+       y="141.50533"
+       id="text919"><tspan
+         sodipodi:role="line"
+         id="tspan917"
+         x="127.09056"
+         y="141.50533"
+         style="stroke-width:0.26458332px">web3</tspan></text>
+    </a>
+  </g>
+</svg>

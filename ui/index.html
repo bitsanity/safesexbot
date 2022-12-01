@@ -1,0 +1,1173 @@
+<html>
+<head>
+  <title>Safe Simple Ξthereum eXchange roBot (SafeSΞXBot)</title>
+  <meta charset="UTF-8"/>
+
+  <!-- 3rd-party libs -->
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/qrcode.min.js"></script>
+  <script src="libs/web3.min.js"></script>
+  <script src="libs/keythereum.min.js"></script>
+
+  <!-- Theme: SKINS -->
+  <link id="PageSkin" rel="stylesheet" type="text/css" href="skins/plain.css"/>
+  <script src="skins/skins.js"></script>
+
+  <!-- I18N: LABELS/STRINGS/LANG -->
+  <script src="languages/labels.js"></script>
+  <script src="languages/english.js"></script>
+  <script src="languages/about_english.js"></script>
+
+  <!-- MODELs -->
+  <script src="app/common/pubsub.js"></script>
+  <script src="app/common/model.js"></script>
+  <script src="app/common/erc20.js"></script>
+  <script src="app/common/erc721.js"></script>
+  <script src="app/common/qrdialog.js"></script>
+  <script src="app/common/chitfactory.js"></script>
+  <script src="app/common/chitmarket.js"></script>
+  <script src="app/options/optionfactory.js"></script>
+
+  <script src="app/market/model.js"></script>
+  <script src="app/market/Drawables.js"></script>
+  <script src="app/market/MarketWidget.js"></script>
+  <script src="app/market/BlocktimeWidget.js"></script>
+  <script src="app/market/ChainlinkAggregator.js"></script>
+  <script src="app/market/RatePairWidget.js"></script>
+  <script src="app/market/EthereumWidget.js"></script>
+  <script src="app/market/BotStatsWidget.js"></script>
+
+  <script src="app/account/model.js"></script>
+  <script src="app/wallet/model.js"></script>
+
+  <!-- VIEWs -->
+  <script src="app/common/view.js"></script>
+  <script src="app/market/view.js"></script>
+  <script src="app/portfolio/view.js"></script>
+  <script src="app/settings/view.js"></script>
+  <script src="app/account/view.js"></script>
+  <script src="app/wallet/view.js"></script>
+
+  <!-- CONTROLLERs -->
+  <script src="app/common/ctrl.js"></script>
+  <script src="app/market/ctrl.js"></script>
+  <script src="app/portfolio/buydlg.js"></script>
+  <script src="app/options/ctrl.js"></script>
+
+  <script src="app/portfolio/newlistingdlg.js"></script>
+  <script src="app/portfolio/asksdialog.js"></script>
+  <script src="app/portfolio/newaskdlg.js"></script>
+  <script src="app/portfolio/newofferdlg.js"></script>
+  <script src="app/portfolio/ctrl.js"></script>
+
+  <script src="app/settings/ctrl.js"></script>
+  <script src="app/account/ctrl.js"></script>
+  <script src="app/wallet/ctrl.js"></script>
+  <script src="app/about/ctrl.js"></script>
+
+  <script>
+    const CRYPTO = require( 'crypto' );
+    const SECP256K1 = require( 'secp256k1' );
+    const ETHERS = require( 'ethers' ).utils;
+    const ADILOS = require( 'adilosjs' );
+    const ETHJS = require( '@ethereumjs/tx' );
+  </script>
+</head>
+
+<body>
+<!-- ADILOS/SIMPLETH QR Challenge Dialog ================================== -->
+<div id=QRDialog>
+<table width=100%>
+<tr>
+  <td align=left>
+    <button id=BackButton onclick="PubSub.publish('MainScreen')"></button>
+  </td>
+</tr>
+<tr>
+  <td class="label" align=center valign=top width=100%>
+    <div id="ChallengeLabel"></div>
+  </td>
+</tr>
+<tr>
+  <td class=data align=center>
+    <div id="TxnDescription"></div>
+  </td>
+</tr>
+<tr>
+  <td align=center bgcolor=white height=500>
+    <span id="ChallengeArea"></span>
+  </td>
+</tr>
+<tr>
+  <td align=center>
+    <button id=RespondButton onclick="PubSub.publish('ScanResponse')"></button>
+  </td>
+  <td align=center>
+    <button id=OopsButton onclick="COMMONCTRL.processQueue()"></button>
+  </td>
+</tr>
+</table>
+</div>
+
+<!-- Camera/Video Dialog ================================================== -->
+<div id=CameraDialog>
+<table width=100%>
+<tr>
+  <td class="label" align=center valign=top width=100%>
+    <div id="CameraLabel"></div>
+  </td>
+</tr>
+<tr>
+  <td align=center bgcolor=white height=500>
+    <video id="ScannerVideo"
+           width=500 height=500
+           muted autoplay playsinline></video>
+  </td>
+</tr>
+<tr>
+  <td align=center>
+    <button id=CancelResponseButton onclick="PubSub.publish('CancelResponse')">
+    </button>
+</tr>
+</table>
+</div>
+
+<div id=TabButtons class="tab">
+<button class="tablinks" id="MarketTabButton" onclick="COMMONVIEW.openTab(event, 'MarketTab');MARKETCTRL.initMarketTab();" />
+<button class="tablinks" id="PortfolioTabButton" onclick="COMMONVIEW.openTab(event, 'PortfolioTab');PORTFOLIOCTRL.initPortfolioTab();" />
+<button class="tablinks" id="OptionsTabButton" onclick="COMMONVIEW.openTab(event,'OptionsTab');PubSub.publish('InitOptionsTab');"/>
+<button class="tablinks" id="SettingsTabButton" onclick="COMMONVIEW.openTab(event,'SettingsTab');SETTINGSCTRL.initSettingsTab();" />
+<button class="tablinks" id="AccountTabButton" onclick="COMMONVIEW.openTab(event, 'AccountTab');ACCOUNTCTRL.initAccountTab();" />
+<button class="tablinks" id="WalletTabButton" onclick="COMMONVIEW.openTab(event, 'WalletTab');WALLETCTRL.initWalletTab();" />
+<button class="tablinks" id="AboutTabButton" onclick="COMMONVIEW.openTab(event, 'AboutTab');ABOUTCTRL.initAboutTab();" />
+</div>
+
+<div id=Splash class="tabcontent" style="display: block;">
+  <p/>
+  <img src="/images/splash.svg" width=900 height=600 />
+</div>
+
+<div id="MarketTab" class="tabcontent">
+<table>
+<tr>
+  <td><canvas id=BlocktimeUTC width=200 height=150 /></td>
+  <td><canvas id=ETHUSD width=200 height=150 /></td>
+  <td><canvas id=BTCUSD width=200 height=150 /></td>
+  <td><canvas id=XMRUSD width=200 height=150 /></td>
+</tr>
+<tr>
+  <td><canvas id=XAUUSD width=200 height=150 /></td>
+  <td><canvas id=XAGUSD width=200 height=150 /></td>
+  <td><canvas id=LRCUSD width=200 height=150 /></td>
+  <td><canvas id=MATICUSD width=200 height=150 /></td>
+</tr>
+<tr>
+  <td><canvas id=LINKUSD width=200 height=150 /></td>
+  <td><canvas id=DASHUSD width=200 height=150 /></td>
+  <td><canvas id=EthereumStats width=200 height=150 /></td>
+  <td><canvas id=BotStats width=200 height=150 /></td>
+</tr>
+<tr>
+  <td><canvas id=DOTUSD width=200 height=150 /></td>
+  <td><canvas id=ADAUSD width=200 height=150 /></td>
+  <td><canvas id=AVAXUSD width=200 height=150 /></td>
+  <td><canvas id=BNBUSD width=200 height=150 /></td>
+</tr>
+</table>
+</div>
+
+<div id="PortfolioTab" class="tabcontent">
+
+<div id=NewListingDialog>
+<table>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td/>
+  <td><div id=NewListingTitle class=label /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=NewListingSellerLabel class=label /></td>
+  <td><div id=NewListingSellerValue class=data /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=NewListingItemTypeLabel class=label></div></td>
+  <td>
+  <select id="NewListingItemTypeCB" class="data"
+    onchange="PubSub.publish('NewListingItemType',this.value)" >
+    <option value="ETH">ETH</option>
+    <option value="ERC20">ERC20</option>
+    <option value="ERC721">ERC721</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td></td>
+  <td>
+    <div id=NewListingETHFields>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewListingETH"
+             type=text class=data size=24 maxlength=33
+             onchange="NEWLISTINGDLG.calcTxs()" />
+      &nbsp;
+      <i>ether</i>
+    </div>
+    <div id=NewListingERC20Fields>
+      <span class=label>ERC20 SCA:</span>&nbsp;
+      <input id="NewListingERC20SCA"
+             type=text class=data size=42 maxlength=42
+             onchange="NEWLISTINGDLG.calcTxs()" />
+      <p/>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewListingERC20Units"
+             type=text class=data size=24 maxlength=33
+             onchange="NEWLISTINGDLG.calcTxs()" />
+      &nbsp;
+      <i>units</i>
+    </div>
+    <div id=NewListingERC721Fields>
+      <span class=label>ERC721 SCA:</span>&nbsp;
+      <input id="NewListingERC721SCA"
+             type=text class=data size=42 maxlength=42
+             onchange="NEWLISTINGDLG.calcTxs()" />&nbsp;
+      <button onclick="PubSub.publish('NewListingUseOptionNFTSCA')">
+        <img src="/images/eoption.svg" height=14 width=14></img>
+      </button>
+      &nbsp;
+      <button onclick="PubSub.publish('NewListingUseChitNFTSCA')">
+        <img src="/images/wrap.svg" height=14 width=14></img>
+      </button>
+      <p/>
+      <span class=label>TokenId:</span>&nbsp;<input
+         id="NewListingERC721TokenId"
+         type=text class=data size=8 maxlength=33
+         onchange="NEWLISTINGDLG.calcTxs()" />
+    </div>
+  </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><span id=ChitNFTDataLabel class=label>NFT Data:</span></td>
+  <td><input id="ChitNFTDataValue" type=text class=data size=55
+             onchange="NEWLISTINGDLG.calcTxs()" />
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=NewListingTxsLabel class=label /></td>
+  <td><div id=NewListingTxsValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id=NewListingOkButton class=okbutton
+        onclick="NEWLISTINGDLG.ok()" ></button>&nbsp;&nbsp;
+      <button id=NewListingCancelButton class=cancelbutton
+        onclick="NEWLISTINGDLG.canceled()" />
+  </td>
+</tr>
+</table>
+</div>
+
+<!-- ====================================================================== -->
+<div id=TakeListingDialog>
+<table>
+<tr>
+  <td/>
+  <td><div id=TakeListingTitle class=label></div></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=TakeListingIdLabel class=label /></td>
+  <td><div id=TakeListingIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=TakeAssetLabel class=label /></td>
+  <td><div id=TakeAssetValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=TakeListingTxsLabel class=label /></td>
+  <td><div id=TakeListingTxsValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id=TakeListingOkButton class=okbutton
+        onclick="BUYLISTINGDLG.ok()" ></button>&nbsp;&nbsp;
+      <button id=TakeListingCancelButton class=cancelbutton
+        onclick="BUYLISTINGDLG.canceled()" />
+  </td>
+</tr>
+</table>
+</div>
+
+<!-- ====================================================================== -->
+<div id="AsksDialog">
+  <button id=AsksDialogBackButton class=cancelbutton
+        onclick="PubSub.publish('AsksDialogBack')" ></button>
+<p/>
+<table>
+<tr>
+  <td/>
+  <td><div id=AsksDialogHeading class=label /></td>
+</tr>
+<tr>
+  <td align=right><div id=AsksChitIdLabel class=label /></td>
+  <td><div id=AsksChitIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=AsksAssetDescripLabel class=label /></td>
+  <td><div id=AsksAssetDescripValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=AsksNewAskLabel class=label /></td>
+  <td>
+    <button id=AsksNewAskButton class=newbutton
+            onclick="PubSub.publish('NewAsk')" ></button>
+  </td>
+</tr>
+</table>
+<p/>
+<table cellpadding=10 id="GeneratedAsksTable">
+</table>
+<p/>
+<table>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td/>
+  <td><div id=OffersDialogHeading class=label /></td>
+</tr>
+<tr>
+  <td align=right><div id=OffersAskIdLabel class=label /></td>
+  <td><div id=OffersAskIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=OffersAskDescripLabel class=label /></td>
+  <td><div id=OffersAskDescripValue class=data /></td>
+</tr>
+</table>
+<p/>
+<table cellpadding=10 id="GeneratedOffersTable"></table>
+</div>
+<!-- ====================================================================== -->
+<div id=NewAskDialog>
+<table>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td/>
+  <td><div id=NewAskTitle class=label /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=NewAskAssetChitIdLabel class=label /></td>
+  <td><div id=NewAskAssetChitIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=NewAskAssetDescripLabel class=label /></td>
+  <td><div id=NewAskAssetDescripValue class=data /></td>
+</tr>
+<tr>
+  <td>&nbsp;
+</tr>
+<tr>
+  <td align=right><div id=NewAskItemTypeLabel class=label></div></td>
+  <td>
+  <select id="NewAskItemTypeCB" class="data"
+    onchange="PubSub.publish('NewAskItemType',this.value)" >
+    <option value="ETH">ETH</option>
+    <option value="ERC20">ERC20</option>
+    <option value="ERC721">ERC721</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td></td>
+  <td>
+    <div id=NewAskETHFields>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewAskETH"
+             type=text class=data size=24 maxlength=33
+             onchange="NEWASKDLG.calcTxs()" />
+      &nbsp;
+      <i>ether</i>
+    </div>
+    <div id=NewAskERC20Fields>
+      <span class=label>ERC20 SCA:</span>&nbsp;
+      <input id="NewAskERC20SCA"
+             type=text class=data size=42 maxlength=42
+             onchange="NEWASKDLG.calcTxs()" />
+      <p/> <!-- -->
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewAskERC20Units"
+             type=text class=data size=24 maxlength=33
+             onchange="NEWASKDLG.calcTxs()" />
+      &nbsp;
+      <i>units</i>
+    </div>
+    <div id=NewAskERC721Fields>
+      <span class=label>ERC721 SCA:</span>&nbsp;
+      <input id="NewAskERC721SCA"
+             type=text class=data size=42 maxlength=42
+             onchange="NEWASKDLG.calcTxs()" />
+      <p> <!-- -->
+      <span class=label>TokenId:</span>&nbsp;<input
+         id="NewAskERC721TokenId"
+         type=text class=data size=8 maxlength=33
+         onchange="NEWASKDLG.calcTxs()" />
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=NewAskTxsLabel class=label /></td>
+  <td><div id=NewAskTxsValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id=NewAskOkButton class=okbutton
+        onclick="NEWASKDLG.ok()" ></button>&nbsp;&nbsp;
+      <button id=NewAskCancelButton class=cancelbutton
+        onclick="NEWASKDLG.canceled()" />
+  </td>
+</tr>
+</table>
+</div>
+
+<!-- ====================================================================== -->
+<div id=NewOfferDialog>
+<table>
+<tr>
+  <td/>
+  <td><div id=NewOfferTitle class=label /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=OfferAssetChitIdLabel class=label /></td>
+  <td><div id=OfferAssetChitIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=OfferAssetDescripLabel class=label /></td>
+  <td><div id=OfferAssetDescripValue class=data /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=OfferAskIdLabel class=label /></td>
+  <td><div id=OfferAskIdValue class=data /></td>
+</tr>
+<tr>
+  <td align=right><div id=OfferAskDescripLabel class=label /></td>
+  <td><div id=OfferAskDescripValue class=data /></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+</table>
+<p/>
+<div id=OfferChitListLabel class=label ></div>
+<p/>
+<table cellpadding=10 id=GeneratedOfferCandidates></table>
+<p/>
+<table>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=OfferTxsLabel class=label /></td>
+  <td><div id=OfferTxsValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id=OfferOkButton class=okbutton
+        onclick="NEWOFFERDLG.ok()" ></button>&nbsp;&nbsp;
+      <button id=OfferCancelButton class=cancelbutton
+        onclick="NEWOFFERDLG.canceled()" />
+  </td>
+</tr>
+</table>
+</div>
+<!-- ====================================================================== -->
+
+<div id="PortfolioListings"
+     style="width:950px;height:600px;overflow:auto;padding:5px">
+
+<table>
+<tr>
+  <td valign=top align="right">
+    <span id="ListingsRadioLabel" class="label"></span>
+  </td>
+  <td>
+    <input type=radio id=MyListings name=ListingsRadio
+           onchange="PubSub.publish('ShowMyListings')" />
+    <label id=MyListingsLabel for=MyListings></label><br>
+    <input type=radio id=OtherListings name=ListingsRadio
+           onchange="PubSub.publish('ShowOtherListings')" />
+    <label id=OtherListingsLabel for=OtherListings></label><br>
+    <input type=radio checked id=AllListings name=ListingsRadio
+           onchange="PubSub.publish('ShowAllListings')" />
+    <label id=AllListingsLabel for=AllListings></label><br>
+  </td>
+</tr>
+</table>
+<p/>
+<span id="NewListingLabel" class=label></span>&nbsp;
+<button id="NewListingButton" class=newbutton
+  onclick="PubSub.publish('MakeNewListing')" >NEW CHIT</button>
+<p/>
+<table cellpadding=10 id="GeneratedPortfolioListings"></table>
+</div> <!-- end PortfolioListings main -->
+</div> <!-- end portfolio tab -->
+
+<div id=OptionsTab class=tabcontent>
+
+<div id=MakeOptionDialog>
+<p/>
+<table>
+<tr>
+  <td/>
+  <td colspan=2><div id=MakeOptionTitle class=label></div></td>
+</tr>
+<tr>
+  <td align=right><div id=OptionTypeLabel class=label></div></td>
+  <td>
+  <select id="OptionTypeCB" class="data"
+    onchange="PubSub.publish('NewOptionTypeChanged',this.value)" >
+    <option value="PUT">PUT</option>
+    <option value="CALL">CALL</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td/>
+  <td align=left><div id=OptionPairLabel class=label></div></td>
+</tr>
+<tr>
+  <td align=right valign=top>
+    <div id=OptionPairFirstLabel class=label></div>
+  </td>
+  <td valign=top><select id="OptionPairCB1" class="data"
+    onchange="PubSub.publish('NewOptionAAAType',this.value)" >
+    <option value="ETH">ETH</option>
+    <option value="ERC20">ERC20</option>
+    <option value="ERC721">ERC721</option>
+  </select>
+  </td>
+  <td>
+    <div id=ETHFields1>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewOptionETH1" type=text class=data size=24 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+             value="1.000000000000000000" />
+      &nbsp;
+      <i>ether</i>
+    </div>
+
+    <div id=ERC20Fields1>
+      <span class=label>SCA:</span>&nbsp;
+      <input id="OptionPairERC20SCA1" type=text class=data size=42 maxlength=42
+             onchange="PubSub.publish('NewOptionCalcTxs')" value="" />
+      <p/>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewOptionERC20Units1"
+        type=text class=data size=24 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+        value="1000000000000000000" />
+      &nbsp;
+      <i>units</i>
+    </div>
+
+    <div id=ERC721Fields1>
+      <span class=label>SCA:</span>&nbsp;
+      <input id="OptionPairERC721SCA1"
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+        type=text class=data size=42 maxlength=42 value="" />
+      <p/>
+      <span class=label>TokenId:</span>&nbsp;<input
+        id="NewOptionERC721TokenId1" type=text class=data size=8 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+        value="1" />
+    </div>
+  </td>
+</tr>
+<tr>
+  <td align=right valign=top>
+    <div id=OptionPairSecondLabel class=label></div>
+  </td>
+  <td valign=top><select id="OptionPairCB2" class="data"
+    onchange="PubSub.publish('NewOptionBBBType',this.value)" >
+    <option value="ETH">ETH</option>
+    <option value="ERC20">ERC20</option>
+    <option value="ERC721">ERC721</option>
+  </select>
+  </td>
+  <td>
+    <div id=ETHFields2>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewOptionETH2" type=text class=data size=24 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+             value="1.000000000000000000" />
+      &nbsp;
+      <i>ether</i>
+    </div>
+
+    <div id=ERC20Fields2>
+      <span class=label>SCA:</span>&nbsp;
+      <input id="OptionPairERC20SCA2" type=text class=data size=42 maxlength=42
+             onchange="PubSub.publish('NewOptionCalcTxs')" value="" />
+      <p/>
+      <span class=label>Amount:</span>&nbsp;
+      <input id="NewOptionERC20Units2"
+        type=text class=data size=24 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+             value="1000000000000000000" />
+      &nbsp;
+      <i>units</i>
+    </div>
+
+    <div id=ERC721Fields2>
+      <span class=label>SCA:</span>&nbsp;
+      <input id="OptionPairERC721SCA2"
+        type=text class=data size=42 maxlength=42
+             onchange="PubSub.publish('NewOptionCalcTxs')" value="" />
+      <p/>
+      <span class=label>TokenId:</span>&nbsp;<input
+        id="NewOptionERC721TokenId2" type=text class=data size=8 maxlength=33
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+        value="1" />
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=OptionExpiresLabel class=label></div></td>
+  <td colspan=2>
+    <span class=label>dd (01-31):</span>
+    <input id="ExpiresDayField"
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+           type=text class=data size=2 maxlength=2 value="31" />&nbsp;
+    <span class=label>MM (01-12):</span>
+    <input id="ExpiresMonField"
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+           type=text class=data size=2 maxlength=2 value="12" />&nbsp;
+    <span class=label>yyyy:</span>
+    <input id="ExpiresYearField"
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+           type=text class=data size=4 maxlength=4 value="2022" />&nbsp;
+    <span class=label>HHmm (0000 - 2359):</span>
+    <input id="ExpiresTimeField"
+             onchange="PubSub.publish('NewOptionCalcTxs')"
+           type=text class=data size=4 maxlength=4 value="1300" />&nbsp;
+    <span class=label>UTC</span>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id=OptionDataLabel class=label></div></td>
+  <td colspan=2>
+    <input id="OptionDataField" type=text class=data size=45 maxlength=80 />
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=MakeOptionTxLabel class=label /></td>
+  <td colspan=2><div id=MakeOptionTxValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td colspan=2><button id=ConfirmOptionOkButton class=okbutton
+        onclick="PubSub.publish('ConfirmOptionOk')" ></button>&nbsp;&nbsp;
+      <button id=ConfirmOptionCancelButton class=cancelbutton
+        onclick="PubSub.publish('ConfirmOptionCancel')" ></button>
+  </td>
+</tr>
+</table>
+</div>
+
+<div id="OptionsTabContent"
+     style="width:950px;height:600px;overflow:auto;padding:5px">
+
+<table>
+<tr>
+  <td valign=top align="right">
+    <span id="OptionRadioLabel" class="label"></span>
+  </td>
+  <td>
+    <input type=radio id=MyOffers name=OptionRadio
+           onchange="PubSub.publish('ShowMyOffers')" />
+    <label id=MyOffersLabel for=MyOffers></label><br>
+    <input type=radio id=OtherOffers name=OptionRadio
+           onchange="PubSub.publish('ShowOtherOffers')" />
+    <label id=OtherOffersLabel for=OtherOffers></label><br>
+    <input type=radio checked id=AllOffers name=OptionRadio
+           onchange="PubSub.publish('ShowAllOffers')" />
+    <label id=AllOffersLabel for=AllOffers></label><br>
+  </td>
+</tr>
+</table>
+
+<button id=MakeOptionButton class=newbutton
+  onclick="PubSub.publish('MakeOption')" ></button>
+<p/>
+<table cellpadding=10 id="GeneratedOptionsListings"></table>
+</div>
+</div>
+
+<div id="SettingsTab" class="tabcontent">
+<table>
+<tr>
+  <td align="right">
+    <span id="SkinLabel" class="label"></span>
+  </td>
+  <td>
+    <select id="SkinCB" class="data" onchange="SKINS.setSkin();">
+      <option value="plain">plain</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td align=right>
+    <span id="LanguageLabel" class="label">&nbsp;</span>
+  </td>
+  <td>
+    <select id="LanguageCB" class="data" onchange="LABELS.setLabels();">
+      <option value="English">English</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align=right><div id="WSURLLabel" class=label /></td>
+  <td>
+    <input id="WSURLValue" type=text class=data size=34 maxlength=33
+        value="ws://localhost:8546" onchange="SETTINGSCTRL.wsUrlChanged()" />
+  </td>
+</tr>
+<tr>
+  <td align=right><div id="GasPriceLabel" class=label /></td>
+  <td>
+    <input id="GasTextValue" class="data" type=text size=14 />&nbsp;
+    <span id="GasPriceUnits" class="units">wei</span>&nbsp;
+    <span id="GasPriceGwei" class="data"></span>&nbsp;
+    <span id="EthGasStationLink" class="hyperlink" onclick="window.open(
+      'https://ethgasstation.info', true)">[ETH Gas Station]</span>
+  </td>
+</tr>
+</table>
+
+<p/>
+
+<fieldset>
+<legend id="SEXBotSettingsLegend" class=legend></legend>
+<table>
+<tr>
+  <td align=right><div id="SCALabel" class=label /></td>
+  <td class="data">
+    <div id="SCAValue" class="hyperlink" onclick="etherscan(this)"></div>
+  </td>
+</tr>
+<tr>
+  <td align=right><div id="BotBalanceLabel" class=label /></td>
+  <td><div id="BotBalanceValue" class="data">&nbsp;</div></td>
+</tr>
+<tr>
+  <td align=right><div id="MakerFeeLabel" class=label /></td>
+  <td><div id="MakerFeeValue" class="data">&nbsp;</div></td>
+</tr>
+<tr>
+  <td align=right><div id="TakerFeeLabel" class=label /></td>
+  <td><div id="TakerFeeValue" class="data">&nbsp;</div></td>
+</tr>
+<tr>
+  <td align=right><div id="ChitSCALabel" class=label /></td>
+  <td class="data">
+    <div id="ChitSCAValue" class="hyperlink" onclick="etherscan(this)"></div>
+  </td>
+</tr>
+<tr>
+  <td align=right><div id="ChitMarketSCALabel" class=label /></td>
+  <td class="data">
+    <div id="ChitMarketSCAValue" class="hyperlink"
+      onclick="etherscan(this)"></div>
+  </td>
+</tr>
+</table>
+</fieldset>
+
+<p/>
+
+<fieldset>
+<legend id="OptionsSettingsLegend" class=legend></legend>
+<table>
+<tr>
+  <td align=right><div id="OptionsSCALabel" class=label /></td>
+  <td class="data">
+    <div id="OptionsSCAValue" class="hyperlink" onclick="etherscan(this)"></div>
+  </td>
+</tr>
+<tr>
+  <td align=right><div id="OptionNFTSCALabel" class=label /></td>
+  <td class="data">
+    <div id="OptionNFTSCAValue" class="hyperlink" onclick="etherscan(this)"></div>
+  </td>
+</tr>
+<tr>
+  <td align=right><div id="OptionsMakeFeeLabel" class=label /></td>
+  <td><div id="OptionsMakeFeeValue" class="data">&nbsp;</div></td>
+</tr>
+<tr>
+  <td align=right><div id="OptionsCancelFeeLabel" class=label /></td>
+  <td><div id="OptionsCancelFeeValue" class="data">&nbsp;</div></td>
+</tr>
+<tr>
+  <td align=right><div id="OptionsTakeFeeLabel" class=label /></td>
+  <td><div id="OptionsTakeFeeValue" class="data">&nbsp;</div></td>
+</tr>
+</table>
+</fieldset>
+
+</div>
+
+<div id="AccountTab" class="tabcontent">
+<table width=100%>
+<tr>
+  <td><div id="LoginLabel" class=label /></td>
+</tr>
+<tr>
+  <td align=right><div id="LoadRawKeyLabel" class="label" /></td>
+  <td>
+    <input id="LoadRawKeyField" class=redtext type=text size=75
+      onchange="ACCOUNTCTRL.ingestRawKey()" />
+  </td>
+</tr>
+<tr>
+  <td/>
+  <td><div id="OrLabel" class=label /></td>
+</tr>
+<tr>
+  <td align=right valign=top>
+    <div id="PasteGethFileLabel" class=label />
+  </td>
+  <td>
+    <textarea id="PasteGethFileField" class=data rows=6 cols=70
+      onchange="ACCOUNTCTRL.ingestGeth()"></textarea>
+  </td>
+</tr>
+<tr>
+  <td/>
+  <td><div id="OrLabel2" class=label /></td>
+</tr>
+<tr>
+  <td align=right><div id="ADILOSLabel" class="label" /></td>
+  <td align=left>
+    <button id=ADILOSChallengeButton class=newbutton
+      onclick="ACCOUNTCTRL.identityChallenge()">
+    </button>
+  </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td><div id="AccountStatusLabel" class=label /></td>
+</tr>
+<tr>
+  <td class="label" align=right><div id="AddrLabel"></div></td>
+  <td><div id="AddrValue" class=data /></td>
+</tr>
+<tr>
+<td align=right><div id="MyBalanceLabel" class=label /></td>
+<td><span id="MyBalanceValue"
+    class=data>&nbsp;</span>&nbsp;&nbsp;<span class=units>ether</span>
+</td>
+</tr>
+<tr>
+  <td align=right><div id="TxCountLabel" class=label /></td>
+  <td><div id="TxCountValue" class=data /></td>
+</tr>
+</table>
+</div>
+
+<div id="WalletTab" class="tabcontent">
+<table>
+<tr>
+  <td><div id="SendFundsLabel" class=label /></td>
+</tr>
+<tr>
+  <td class="label" align=right><div id="SendToAddrLabel"></div></td>
+  <td>
+    <input id="SendToAddrValue" type=text size=45 maxlength=42 class=data
+      onchange="WALLETCTRL.calcTx()" />
+  </td>
+</tr>
+<tr>
+  <td class="label" align=right><div id="SendAmountLabel"></div></td>
+  <td><input id="SendAmountValue" type=text size=30 class=data
+        onchange="WALLETCTRL.calcTx()" />&nbsp;
+      <span class=units>eth</span>
+  </td>
+</tr>
+<tr>
+  <td class="label" align=right><div id="SendCalldataLabel"></div></td>
+  <td><input id="SendCalldataValue" type=text size=70 class=data
+        onchange="WALLETCTRL.calcTx()" /></td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=SendEthTxLabel class=label /></td>
+  <td><div id=SendEthTxValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id="SendEtherButton" class=okbutton
+        onclick="WALLETCTRL.sendEther()" />
+  </td>
+</tr>
+</table>
+
+<p/>
+
+<table>
+<tr>
+  <td align=left colspan=2>
+    <span id="TransferTokensLabel" class=label></span>
+  </td>
+</tr>
+<tr>
+<td align=right><span id="TransferTokenTypeLabel" class=label></span></td>
+<td align=left>
+<select id="XferTokenType" class="data"
+  onchange="PubSub.publish('NewXferTokenType',this.value)" >
+  <option value="ERC20">ERC20</option>
+  <option value="ERC721">ERC721</option>
+</select>
+</td>
+</tr>
+
+<tr>
+  <td align=right><div id=SelectTokenLabel class=label></div></td>
+  <td><input id=TokenSCAValue type=text class=data size=45 maxlength=42
+        onchange="PubSub.publish('TransferTokenSCAChanged',this.value)" />
+      &nbsp;
+      <button id=WalletUseONFT onclick="PubSub.publish('WalletUseONFTSCA')">
+        <img src="/images/eoption.svg" height=14 width=14></img>
+      </button>
+  </td>
+</tr>
+<tr>
+  <td align=right><div id=MyTokenBalLabel class=label></div></td>
+  <td><div id=MyTokenBalValue class=data></div></td>
+</tr>
+<tr>
+  <td align=right><div id=TokenToLabel class=label></div></td>
+  <td><input id=TokenToValue type=text class=data size=45 maxlength=42
+             onchange="WALLETCTRL.calcTokenTx()" /></td>
+</tr>
+<tr>
+  <td align=right><div id=TokenAmountLabel class=label></div></td>
+  <td><input id=TokenAmountValue type=text class=data size=30
+             onchange="WALLETCTRL.calcTokenTx()" /></td>
+</tr>
+<tr>
+  <td align=right valign=top><div id=TokenTxLabel class=label /></td>
+  <td><div id=TokenTxValue class=data /></td>
+</tr>
+<tr>
+  <td/>
+  <td><button id="TransferTokensButton" class=okbutton
+        onclick="WALLETCTRL.transferTokens()" />
+  </td>
+</tr>
+</table>
+</div>
+
+<div id="AboutTab" class="tabcontent">
+  <textarea id="AboutTextArea" class=data rows=43 cols=115 readonly></textarea>
+</div>
+
+<script type="module">
+  import QrScanner from "./node_modules/qr-scanner/qr-scanner.min.js";
+  QrScanner.WORKER_PATH = "./node_modules/qr-scanner/qr-scanner-worker.min.js";
+
+  var scancb;
+  var scanner;
+
+  global.setVideo = function(video) {
+    if (scanner) {
+      scanner.destroy();
+    }
+
+    scanner = new QrScanner( video, result => {
+      result = result.replace(/\s/g, '');
+      scancb( result );
+    } );
+  }
+
+  global.startQRScanner = function() {
+    if (scanner) scanner.start();
+  }
+
+  global.pauseQRScanner = function() {
+    if (scanner) scanner.pause();
+  }
+
+  global.setScannerCallback = function( cb ) {
+    scancb = cb;
+  }
+</script>
+
+<script type="text/javascript">
+  let chitfactory = new CHITFACTORY()
+
+  function etherscan(elem) {
+    let sca = elem.innerHTML
+    window.open( 'https://etherscan.io/address/' + sca );
+  }
+
+  // assign 'Marklet' objects
+  const WIDGWIDTH = 200, WIDGHEIGHT = 150, WIDGROUND = 30;
+
+  let utcloc = new BlocktimeWidget();
+  utcloc.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  // https://docs.chain.link/docs/ethereum-addresses
+
+  let ethusd = new RatePairWidget( "ETH/USD",
+    "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419", "$", 8 );
+  ethusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let btcusd = new RatePairWidget( "BTC/USD",
+    "0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c", "$", 8 );
+  btcusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let xmrusd = new RatePairWidget( "XMR/USD",
+    "0xFA66458Cce7Dd15D8650015c4fce4D278271618F", "$", 8 );
+  xmrusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let xauusd = new RatePairWidget( "XAU/USD",
+    "0x214eD9Da11D2fbe465a6fc601a91E62EbEc1a0D6", "$", 8 );
+  xauusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let xagusd = new RatePairWidget( "XAG/USD",
+    "0x379589227b15F1a12195D3f2d90bBc9F31f95235", "$", 8 );
+  xagusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let lrcusd = new RatePairWidget( "LRC/USD",
+    "0xFd33ec6ABAa1Bdc3D9C6C85f1D6299e5a1a5511F", "$", 8 );
+  lrcusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let linkusd = new RatePairWidget( "LINK/USD",
+    "0x2c1d072e956AFFC0D435Cb7AC38EF18d24d9127c", "$", 8 );
+  linkusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let maticusd = new RatePairWidget( "MATIC/USD",
+    "0x7bAC85A8a13A4BcD8abb3eB7d6b4d632c5a57676", "$", 8 );
+  maticusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let dotusd = new RatePairWidget( "DOT/USD",
+    "0x1C07AFb8E2B827c5A4739C6d59Ae3A5035f28734", "$", 8 )
+  dotusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let adausd = new RatePairWidget( "ADA/USD",
+    "0xAE48c91dF1fE419994FFDa27da09D5aC69c30f55", "$", 8 )
+  adausd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let avaxusd = new RatePairWidget( "AVAX/USD",
+    "0xFF3EEb22B5E3dE6e705b44749C2559d704923FD7", "$", 8 )
+  avaxusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let bnbusd = new RatePairWidget( "BNB/USD",
+    "0x14e613AC84a31f709eadbdF89C6CC390fDc9540A", "$", 8 )
+  bnbusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let dashusd = new RatePairWidget( "DASH/USD",
+    "0xFb0cADFEa136E9E343cfb55B863a6Df8348ab912", "$", 8 )
+  dashusd.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND )
+
+  MARKETCTRL.setWidgets(
+    [ ethusd, btcusd, xmrusd, xauusd,
+      xagusd, lrcusd, linkusd, maticusd,
+      dotusd, adausd, avaxusd, bnbusd,
+      dashusd ]
+  );
+
+  let enw = new EthereumWidget();
+  enw.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  let bsw = new BotStatsWidget();
+  bsw.setDimensions( WIDGWIDTH, WIDGHEIGHT, WIDGROUND );
+
+  function redrawMarketWidgets() {
+    utcloc.draw( BlocktimeUTC.getContext('2d') );
+
+    ethusd.draw( ETHUSD.getContext('2d') );
+    btcusd.draw( BTCUSD.getContext('2d') );
+    xmrusd.draw( XMRUSD.getContext('2d') );
+    xauusd.draw( XAUUSD.getContext('2d') );
+    xagusd.draw( XAGUSD.getContext('2d') );
+    lrcusd.draw( LRCUSD.getContext('2d') );
+    linkusd.draw( LINKUSD.getContext('2d') );
+    maticusd.draw( MATICUSD.getContext('2d') );
+    dotusd.draw( DOTUSD.getContext('2d') );
+    adausd.draw( ADAUSD.getContext('2d') );
+    avaxusd.draw( AVAXUSD.getContext('2d') );
+    bnbusd.draw( BNBUSD.getContext('2d') );
+    dashusd.draw( DASHUSD.getContext('2d') );
+    enw.draw( EthereumStats.getContext('2d') );
+    bsw.draw( BotStats.getContext('2d') );
+  }
+
+  window.resizeTo( 1000, 740 );
+  LABELS.setLabels();
+  SKINS.setSkin();
+
+  PubSub.publish('wsUrlChanged');
+  PubSub.publish('MainScreen');
+
+  setTimeout( () => {
+    global.setVideo( document.getElementById("ScannerVideo") );
+    global.setScannerCallback( (res) => {
+      global.pauseQRScanner();
+      PubSub.publish( 'QRScanned', res );
+    } );
+  }, 500 );
+</script>
+
+</body>
+</html>
+
