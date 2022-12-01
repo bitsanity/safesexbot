@@ -10,6 +10,18 @@ SafeSEXBot also enables users to write and strike puts and calls, and these
 contracts can be bought and sold within SafeSEXBot or any exchange that
 supports NFTs and recognizes our token.
 
+## RELEASE
+
+User Interface safesexbot-ui-1.tgz:
+**IPFS Hash**: Qmb2Tpg67ZhTrdjpyMNrWidQqb3PzbSvMxXwqHtKgRMkpi
+
+Smart Contract SCAs (Ethereum/mainnet):
+**ChitFactory**: 0x645e9ba771438Bd45E4756B21C6B04197C0BfAd5
+**ChitMarket**: 0x986B03C027C6Ededc5c85Bd267b4c34D31efe8e3
+**Chit (NFT)**: 0xAEd793393a0F8Ca285C21bf55244D17c29E11155
+**OptionFactory**:0xaEE9b3e8329B57e2192f4B70c7C3fB22A4C72F6E
+**OptionNFT**: 0x3308FCCcC757c491075A9CF974d34016DBEbefDa
+
 ## FEATURE: Asset Custody
 
 Use CHITFACTORY to place an asset (ether, ERC20, or ERC721) to receive a CHIT.
